@@ -88,6 +88,9 @@
         }
       }
     },
+    "Bitcount: %lld" : {
+
+    },
     "Cancel" : {
       "comment" : "Button title indicating that the operation should be cancelled",
       "localizations" : {
@@ -203,6 +206,9 @@
           }
         }
       }
+    },
+    "Get data" : {
+
     },
     "Hello [%@](https://skip.tools)!" : {
       "comment" : "Welcome tab contents",
