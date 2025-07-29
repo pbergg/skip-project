@@ -27,12 +27,17 @@ struct PDFTests: View {
             }
             #endif
             
-            #if SKIP
-            ComposeView { ctx in
-                // SKIP INSERT:
-                // MyComposableWithName("Swift")
+            if let data {
+                #if SKIP
+                Text("Data obtained")
+                
+                let kotlinData = data.kotlin()
+                ComposeView { ctx in
+                    // SKIP INSERT:
+                    // MyComposableWithData(kotlinData)
+                }
+                #endif
             }
-            #endif
         }
     }
     
