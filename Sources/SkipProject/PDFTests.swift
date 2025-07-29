@@ -26,6 +26,13 @@ struct PDFTests: View {
                 PDFViewer(data: data)
             }
             #endif
+            
+            #if SKIP
+            ComposeView { ctx in
+                // SKIP INSERT:
+                // MyComposableWithName("Swift")
+            }
+            #endif
         }
     }
     
