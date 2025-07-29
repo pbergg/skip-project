@@ -88,9 +88,6 @@
         }
       }
     },
-    "Bitcount: %lld" : {
-
-    },
     "Cancel" : {
       "comment" : "Button title indicating that the operation should be cancelled",
       "localizations" : {
@@ -325,6 +322,9 @@
           }
         }
       }
+    },
+    "New Bitcount: %lld" : {
+
     },
     "Notes" : {
       "comment" : "Item editor form label for the Notes field",

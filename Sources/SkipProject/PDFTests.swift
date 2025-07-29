@@ -15,7 +15,7 @@ struct PDFTests: View {
     
     var body: some View {
         VStack {
-            Text("Bitcount: \(bitCount)")
+            Text("New Bitcount: \(bitCount)")
             
             Button("Get data") {
                 fetchBitCount()
@@ -34,7 +34,7 @@ struct PDFTests: View {
                 let kotlinData = data.kotlin()
                 ComposeView { ctx in
                     // SKIP INSERT:
-                    // MyComposableWithData(kotlinData)
+                    // PdfViewerFromBytes(kotlinData)
                 }
                 #endif
             }
