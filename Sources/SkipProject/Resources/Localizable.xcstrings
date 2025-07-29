@@ -175,6 +175,9 @@
         }
       }
     },
+    "Document" : {
+
+    },
     "Favorite" : {
       "comment" : "Item editor title label for marking the item as a favorite",
       "localizations" : {
@@ -204,7 +207,7 @@
         }
       }
     },
-    "Get data" : {
+    "Fetch data" : {
 
     },
     "Hello [%@](https://skip.tools)!" : {
@@ -355,6 +358,9 @@
         }
       }
     },
+    "Open sheet" : {
+
+    },
     "Powered by [Skip](https://skip.tools)" : {
       "comment" : "Link markdown text for the Powered by… label",
       "localizations" : {
@@ -441,6 +447,9 @@
           }
         }
       }
+    },
+    "Share" : {
+
     },
     "System" : {
       "comment" : "Menu item indicating that the appearance should be in the default system mode",

@@ -9,34 +9,60 @@ import SwiftUI
 
 let urlStr = "https://firebasestorage.googleapis.com/v0/b/docberg-b0b34.firebasestorage.app/o/pdf_files%2F2C2C97A6581D4BBDB216A998367C73ED?alt=media&token=28687ed4-2ea9-4596-be8b-02cf951f7a5d"
 
-struct PDFTests: View {
-    @State var bitCount = 0
-    @State var data: Data?
-    
+
+struct PDFSheet: View {
+    let data: Data
     var body: some View {
-        VStack {
-            Text("New Bitcount: \(bitCount)")
-            
-            Button("Get data") {
-                fetchBitCount()
-            }
-            
+        NavigationStack {
+            VStack {
             #if !SKIP
-            if let data {
                 PDFViewer(data: data)
-            }
-            #endif
-            
-            if let data {
-                #if SKIP
-                Text("Data obtained")
-                
+            #else
                 let kotlinData = data.kotlin()
                 ComposeView { ctx in
                     // SKIP INSERT:
                     // PdfViewerFromBytes(kotlinData)
                 }
-                #endif
+            #endif
+            }
+            #if !SKIP
+            .ignoresSafeArea()
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Share", systemImage: "heart") {
+                        //More to come
+                    }
+                }
+            }
+            .navigationTitle("Document")
+            .navigationBarTitleDisplayMode(.inline)
+            #endif
+        }
+    }
+}
+
+struct PDFTests: View {
+    @State var bitCount = 0
+    @State var data: Data?
+    @State var openSheet = false
+    
+    var body: some View {
+        VStack {
+            Text("New Bitcount: \(bitCount)")
+            
+            Button("Fetch data") {
+                fetchBitCount()
+            }
+            
+            if let _ = data {
+                Button("Open sheet") {
+                    openSheet = true
+                }
+            }
+        }
+        .sheet(isPresented: $openSheet) {
+            if let data {
+                PDFSheet(data: data)
             }
         }
     }
