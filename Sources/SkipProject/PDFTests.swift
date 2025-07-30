@@ -60,7 +60,8 @@ struct PDFTests: View {
                 }
             }
         }
-        .sheet(isPresented: $openSheet) {
+        
+        .fullScreenCover(isPresented: $openSheet) {
             if let data {
                 PDFSheet(data: data)
             }
