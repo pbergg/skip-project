@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.android.application)
     id("skip-build-plugin")
+    id("org.jetbrains.kotlin.plugin.parcelize") version "1.9.23"
 }
 
 skip {

@@ -22,3 +22,7 @@ settings:
             - 'google()'
             - 'mavenCentral()'
             - 'maven("https://jitpack.io")'
+
+android:
+   androidPlugins:
+    - 'kotlin-parcelize'

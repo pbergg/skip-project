@@ -21,36 +21,56 @@ fun StripeCheckoutView(
     var customerConfig by remember { mutableStateOf<PaymentSheet.CustomerConfiguration?>(null) }
     var clientSecret by remember { mutableStateOf<String?>(null) }
 
-    LaunchedEffect(customerId, ephemeralKey, paymentIntentSecret, publishableKey) {
+    LaunchedEffect(context, customerId, ephemeralKey, paymentIntentSecret, publishableKey) {
         PaymentConfiguration.init(context, publishableKey)
         clientSecret = paymentIntentSecret
         customerConfig = PaymentSheet.CustomerConfiguration(
             id = customerId,
             ephemeralKeySecret = ephemeralKey
         )
+
+        PaymentConfiguration.init(context, publishableKey)
     }
 
     Button(onClick = {
-        val config = customerConfig
-        val secret = clientSecret
-        if (config != null && secret != null) {
-            paymentSheet.presentWithPaymentIntent(
-                secret,
-                PaymentSheet.Configuration.Builder("My merchant name")
-                    .customer(config)
-                    .allowsDelayedPaymentMethods(true)
-                    .build()
-            )
+        val currentConfig = customerConfig
+        val currentClientSecret = clientSecret
+
+        if (currentConfig != null && currentClientSecret != null) {
+            presentPaymentSheet(paymentSheet, currentConfig, currentClientSecret)
         }
     }) {
         Text("Checkout")
     }
 }
 
+private fun presentPaymentSheet(
+    paymentSheet: PaymentSheet,
+    customerConfig: PaymentSheet.CustomerConfiguration,
+    paymentIntentClientSecret: String
+) {
+    paymentSheet.presentWithPaymentIntent(
+        paymentIntentClientSecret,
+        PaymentSheet.Configuration.Builder(merchantDisplayName = "My merchant name")
+            .customer(customerConfig)
+            // Set `allowsDelayedPaymentMethods` to true if your business handles
+            // delayed notification payment methods like US bank accounts.
+            .allowsDelayedPaymentMethods(true)
+            .build()
+    )
+}
+
 private fun onPaymentSheetResult(paymentSheetResult: PaymentSheetResult) {
-    when (paymentSheetResult) {
-        is PaymentSheetResult.Canceled -> println("Canceled")
-        is PaymentSheetResult.Failed -> println("Error: ${paymentSheetResult.error}")
-        is PaymentSheetResult.Completed -> println("Completed")
+    when(paymentSheetResult) {
+        is PaymentSheetResult.Canceled -> {
+            print("Canceled")
+        }
+        is PaymentSheetResult.Failed -> {
+            print("Error: ${paymentSheetResult.error}")
+        }
+        is PaymentSheetResult.Completed -> {
+            // Display for example, an order confirmation screen
+            print("Completed")
+        }
     }
 }

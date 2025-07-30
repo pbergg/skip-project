@@ -84,7 +84,7 @@ struct PaymentsTestView: View {
     
     var body: some View {
         VStack {
-            Text(stripeData == nil ? "No data" : "Data fetched")
+            Text(stripeData == nil ? "Noww data" : "Data fetched")
                 .bold()
             
             Text(status)

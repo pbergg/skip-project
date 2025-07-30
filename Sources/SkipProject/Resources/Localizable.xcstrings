@@ -341,9 +341,6 @@
     "New Bitcount: %lld" : {
 
     },
-    "No data" : {
-
-    },
     "Notes" : {
       "comment" : "Item editor form label for the Notes field",
       "localizations" : {
@@ -372,6 +369,9 @@
           }
         }
       }
+    },
+    "Noww data" : {
+
     },
     "Open sheet" : {
 
