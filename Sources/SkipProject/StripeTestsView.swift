@@ -104,11 +104,22 @@ struct PaymentsTestView: View {
                 }
             }
             
-            #if !SKIP
             if let stripeData {
+            #if !SKIP
                 StripeTestsView(stripeData: stripeData)
-            }
+            #else
+                ComposeView { ctx in
+                    // SKIP INSERT:
+                    // StripeCheckoutView(
+                    //     stripeData.customerId,
+                    //     stripeData.ephemeralKeysSecret,
+                    //     stripeData.paymentIntentSecret,
+                    //     stripeData.publishableKey
+                    // )
+                }
             #endif
+            }
+
         }
     }
 }
