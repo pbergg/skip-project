@@ -30,6 +30,12 @@
         }
       }
     },
+    "✅ Tapped!" : {
+
+    },
+    "❌ Not tapped" : {
+
+    },
     "Add" : {
       "comment" : "Button in items list that will cause a new item to be added",
       "localizations" : {
@@ -247,6 +253,9 @@
           }
         }
       }
+    },
+    "Hello iOS" : {
+
     },
     "Home" : {
       "comment" : "Tab bar item title for the Home tab",

@@ -15,7 +15,8 @@ public struct SkipProjectRootView : View {
     }
 
     public var body: some View {
-        PaymentsTestView()
+        DirectViewsTests()
+//        PaymentsTestView()
 //        PDFTests()
 //        ContentView()
             .task {
