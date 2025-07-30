@@ -18,6 +18,7 @@ let package = Package(
         .target(name: "SkipProject", dependencies: [
             .product(name: "SkipUI", package: "skip-ui"),
             .product(name: "Stripe", package: "stripe-ios-spm"),
+            .product(name: "StripePaymentSheet", package: "stripe-ios-spm"),
         ], resources: [.process("Resources")], plugins: [.plugin(name: "skipstone", package: "skip")]),
         .testTarget(name: "SkipProjectTests", dependencies: [
             "SkipProject",

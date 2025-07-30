@@ -146,6 +146,9 @@
         }
       }
     },
+    "Data fetched" : {
+
+    },
     "Date" : {
       "comment" : "Item editor form label for the Date field",
       "localizations" : {
@@ -208,6 +211,12 @@
       }
     },
     "Fetch data" : {
+
+    },
+    "Fetch payment info" : {
+
+    },
+    "Get data" : {
 
     },
     "Hello [%@](https://skip.tools)!" : {
@@ -297,6 +306,9 @@
         }
       }
     },
+    "Make payment" : {
+
+    },
     "Name" : {
       "comment" : "Placeholder title for the Name field in a form",
       "localizations" : {
@@ -327,6 +339,9 @@
       }
     },
     "New Bitcount: %lld" : {
+
+    },
+    "No data" : {
 
     },
     "Notes" : {
