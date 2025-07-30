@@ -9,6 +9,9 @@ build:
       contents:
         - 'implementation("com.github.mhiew:android-pdf-viewer:3.2.0-beta.3")'
         - 'implementation("androidx.compose.ui:ui-viewbinding:1.5.0")'
+        - 'implementation("com.stripe:stripe-android:21.22.0")'
+        - 'implementation("com.stripe:financial-connections:21.22.0")'
+
 
 settings:
   contents:
